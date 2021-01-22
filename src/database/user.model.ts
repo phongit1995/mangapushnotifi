@@ -1,0 +1,55 @@
+import * as mongoose  from 'mongoose';
+export const userSchema = new mongoose.Schema({
+    app_id:{
+        type:String
+    },
+    nickname:{
+        type:String,
+    },
+    name:{
+        type:String
+    },
+    image:{
+        type:String,
+    },
+    tiktok_id:{
+        type:String
+    },
+    coin:{
+        type:Number,
+        default:10
+    },
+    followerCount:{
+        type:Number,
+        default:0
+    },
+    followingCount:{
+        type:Number,
+        default:0
+    },
+    list_following:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'user'
+        }
+    ],
+    skip_users:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'user'
+        }
+    ]
+},{timestamps:true})
+export interface User extends mongoose.Document{
+    app_id?:string,
+    name?:string,
+    nickname?:string,
+    image?:string
+    tiktok_id?:string,
+    coin?:number,
+    followerCount?:number,
+    followingCount?:number,
+    list_following?:Array<string>,
+    token?:string,
+    skip_users?:Array<string>
+}
