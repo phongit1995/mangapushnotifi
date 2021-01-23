@@ -16,7 +16,6 @@ const config_service_1 = require("./config.service");
 let FcmPushService = class FcmPushService {
     constructor(configServer) {
         this.configServer = configServer;
-        console.log(configServer.push_key);
         this.fcm = new fcmPush(configServer.push_key);
     }
     async sendMessage(message) {

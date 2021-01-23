@@ -10,10 +10,17 @@ exports.NotificationModule = void 0;
 const common_1 = require("@nestjs/common");
 const notification_service_1 = require("./notification.service");
 const notification_controller_1 = require("./notification.controller");
+const mongoose_1 = require("@nestjs/mongoose");
+const history_1 = require("../../database/history");
 let NotificationModule = class NotificationModule {
 };
 NotificationModule = __decorate([
     common_1.Module({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([
+                { name: "history", schema: history_1.historySchema }
+            ])
+        ],
         providers: [notification_service_1.NotificationService],
         controllers: [notification_controller_1.NotificationController],
         exports: [notification_service_1.NotificationService]

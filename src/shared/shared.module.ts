@@ -18,6 +18,16 @@ const providers:Array<any> = [ConfigServer,CacheService,RequestService,FcmPushSe
         }
     ],
     imports:[
+        MongooseModule.forRootAsync({
+            imports:[ShareModule],
+            useFactory:(config:ConfigServer)=>({
+                uri:config.mongo_url,
+                retryAttempts:1,
+                useFindAndModify:false,
+                useCreateIndex:true
+            }),
+            inject:[ConfigServer]
+        }),
         JwtModule.registerAsync({
             imports:[ShareModule],
             useFactory:async (config:ConfigServer)=>({

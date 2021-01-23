@@ -1847,12 +1847,12 @@
         "affectsGlobalScope": false
       },
       "../src/shared/services/push.service.ts": {
-        "version": "1dcdd151e65508c3f2bf0d88db520a15bb9ae6f13a75d9af3b0bc7e8b21c8536",
+        "version": "8d0dc72ded08407e504d74761be690c152971b6911de03e7d2d756b2389bf79c",
         "signature": "e7c85864ad93ec2be855b4a6d68a443cf6e12293f2aa8e892cb003ad9e67d777",
         "affectsGlobalScope": false
       },
       "../src/shared/shared.module.ts": {
-        "version": "f4caf6fb90281b9b12db3431e0935c857620221b040a3d07c763b3106ddae1d6",
+        "version": "7fa5e65bc81d31d1eaf5e8b237bfb5c240c43107abd12224b5b11c59f535b747",
         "signature": "3fbc969f18ba7ff262a1c101c410e836eec109384c3d7f87863e6c957cf1638b",
         "affectsGlobalScope": false
       },
@@ -1861,9 +1861,19 @@
         "signature": "e167055f9d252db53aabf769f20329b627ad7782795047d527d2142a0627c457",
         "affectsGlobalScope": false
       },
+      "../src/database/history.ts": {
+        "version": "7705c297ac28af3d5960dfe75a14ea9b5c0a26eb8aef3dc4efc29003e18a665c",
+        "signature": "3f42d8572e95a4def4431a973832de22e9221f6b8ce77d92e8b58889b246030a",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/cronjob/cronjob.interface.ts": {
+        "version": "900572960fb80fcbe9eec02acb57724951dfbf3dc48c391255acefe8a01a271a",
+        "signature": "40c8f502ba61c3123e9b2313124cf9294be277a263cc115f06ad73a24f5f7f5d",
+        "affectsGlobalScope": false
+      },
       "../src/modules/notification/notification.service.ts": {
-        "version": "925f55059618479c51980e5fee0ab0b5fe19491d0f25092b62fc12d5252b37b0",
-        "signature": "c961cfcd278655f7c7caf78a00cd1104242e155a0645d523ec0f06844f5c805d",
+        "version": "7ca92b81dd0e0b67aa6e0ee482487328e17fe7fe6e422b6c9c5a4363bfeb2f56",
+        "signature": "c839d2b237d82e66a0821c777ee04a3cf0a4eb66236f225bc432bb3e8e402e9c",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/swagger/dist/decorators/api-basic.decorator.d.ts": {
@@ -2687,7 +2697,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/notification/notification.module.ts": {
-        "version": "32dd880cab6e42258798b261d0dd1ada10c9cbd324e1d5dc0e29571c92cc4a7f",
+        "version": "15a118243b5a9943766bbfb936ad0af99f9bbd3c5b3ad5f51f58a36fca5a654d",
         "signature": "2bb936018a74923d7e1f44f4c3bd52b4d450b5bea6e50a082dc89c85d6a6caf4",
         "affectsGlobalScope": false
       },
@@ -2827,7 +2837,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/cronjob/cronjob.service.ts": {
-        "version": "014534136e14937f9de52620b44b8007882ec226d40f69449092e0f718ff5eb7",
+        "version": "ad62b241d8289ca9dcccbecde4cf8ac95cd8d878e4e705ca042dc254fda987db",
         "signature": "fc60ac176fb174b0d1aa06471320d188645cf2453ed8ce676378734985366e2d",
         "affectsGlobalScope": false
       },
@@ -5603,6 +5613,9 @@
       "../src/database/hashtag.model.ts": [
         "../node_modules/mongoose/index.d.ts"
       ],
+      "../src/database/history.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
       "../src/database/post.model.ts": [
         "../node_modules/mongoose/index.d.ts"
       ],
@@ -5625,6 +5638,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/schedule/index.d.ts",
         "../node_modules/cheerio/types/index.d.ts",
+        "../src/modules/cronjob/cronjob.interface.ts",
         "../src/modules/notification/notification.service.ts",
         "../src/shared/services/request.service.ts"
       ],
@@ -5641,11 +5655,17 @@
       ],
       "../src/modules/notification/notification.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../src/database/history.ts",
         "../src/modules/notification/notification.controller.ts",
         "../src/modules/notification/notification.service.ts"
       ],
       "../src/modules/notification/notification.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../node_modules/mongoose/index.d.ts",
+        "../src/database/history.ts",
+        "../src/modules/cronjob/cronjob.interface.ts",
         "../src/shared/services/push.service.ts"
       ],
       "../src/shared/services/cache/cache.manger.ts": [
@@ -7921,6 +7941,9 @@
       "../src/database/hashtag.model.ts": [
         "../node_modules/mongoose/index.d.ts"
       ],
+      "../src/database/history.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
       "../src/database/post.model.ts": [
         "../node_modules/mongoose/index.d.ts"
       ],
@@ -7937,6 +7960,9 @@
         "../src/modules/notification/notification.service.ts"
       ],
       "../src/modules/notification/notification.service.ts": [
+        "../node_modules/mongoose/index.d.ts",
+        "../src/database/history.ts",
+        "../src/modules/cronjob/cronjob.interface.ts",
         "../src/shared/services/push.service.ts"
       ],
       "../src/shared/services/cache/cache.service.ts": [
@@ -8603,9 +8629,11 @@
       "../src/common/validation/array.validation.ts",
       "../src/common/validation/mongooseid.validation.ts",
       "../src/database/hashtag.model.ts",
+      "../src/database/history.ts",
       "../src/database/post.model.ts",
       "../src/database/user.model.ts",
       "../src/main.ts",
+      "../src/modules/cronjob/cronjob.interface.ts",
       "../src/modules/cronjob/cronjob.module.ts",
       "../src/modules/cronjob/cronjob.service.ts",
       "../src/modules/notification/notification.controller.ts",

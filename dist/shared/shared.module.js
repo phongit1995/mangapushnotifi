@@ -14,6 +14,7 @@ const exceptions_filter_1 = require("../common/exceptions.filter");
 const config_service_1 = require("./services/config.service");
 const cache_service_1 = require("./services/cache/cache.service");
 const request_service_1 = require("./services/request.service");
+const mongoose_1 = require("@nestjs/mongoose");
 const jwt_1 = require("@nestjs/jwt");
 const push_service_1 = require("./services/push.service");
 const providers = [config_service_1.ConfigServer, cache_service_1.CacheService, request_service_1.RequestService, push_service_1.FcmPushService];
@@ -30,6 +31,16 @@ ShareModule = ShareModule_1 = __decorate([
             }
         ],
         imports: [
+            mongoose_1.MongooseModule.forRootAsync({
+                imports: [ShareModule_1],
+                useFactory: (config) => ({
+                    uri: config.mongo_url,
+                    retryAttempts: 1,
+                    useFindAndModify: false,
+                    useCreateIndex: true
+                }),
+                inject: [config_service_1.ConfigServer]
+            }),
             jwt_1.JwtModule.registerAsync({
                 imports: [ShareModule_1],
                 useFactory: async (config) => ({

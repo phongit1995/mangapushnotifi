@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CronjobService = void 0;
 const common_1 = require("@nestjs/common");
+const schedule_1 = require("@nestjs/schedule");
 const notification_service_1 = require("../notification/notification.service");
-const cheerio = require("cheerio");
 const request_service_1 = require("../../shared/services/request.service");
 let CronjobService = class CronjobService {
     constructor(notificationService, requestService) {
@@ -23,10 +23,22 @@ let CronjobService = class CronjobService {
     async handleJob() {
         console.log("Phong");
         const resutlFetch = await this.requestService.getMethod(this.URL_WEBSITE);
-        const $ = cheerio.load(resutlFetch);
-        console.log($(".BoxBody.LatestChapters>.row .Chapter").length);
+        let regexData = new RegExp(/(?=LatestJSON).*(?=;)/g);
+        const resultRegex = regexData.exec(resutlFetch);
+        let dataKey = resultRegex[0].replace("LatestJSON =", "");
+        let listLastedVersion = JSON.parse(dataKey);
+        listLastedVersion = listLastedVersion.filter((item, index) => index < 10);
+        listLastedVersion.map((item) => {
+            this.notificationService.sendNotificationToTopic(item);
+        });
     }
 };
+__decorate([
+    schedule_1.Cron(schedule_1.CronExpression.EVERY_2_HOURS),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], CronjobService.prototype, "handleJob", null);
 CronjobService = __decorate([
     common_1.Injectable(),
     __metadata("design:paramtypes", [notification_service_1.NotificationService,

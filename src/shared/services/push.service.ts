@@ -5,7 +5,6 @@ import { ConfigServer } from './config.service';
 export class FcmPushService{
     private fcm:any ;
     constructor(private configServer:ConfigServer){
-        console.log(configServer.push_key);
         this.fcm = new fcmPush(configServer.push_key);
     }
     async sendMessage(message:pushMessage):Promise<void>{
